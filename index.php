@@ -15,6 +15,8 @@
         </form>
 
         <?php
+        $MAX_ROWS = 5; // change to whatever you like
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $query = htmlspecialchars($_POST['query']);
             $apiUrl = "https://tpb.party/s/?q=" . urlencode($query) . "&cat=201"; // 201 is for video category in tpb.party
@@ -37,7 +39,7 @@
                     $counter = 0;
 
                     foreach ($rows as $row) {
-                        if ($counter >= 5) break;
+                        if ($counter >= $MAX_ROWS) break;
                         
                         $name = $xpath->query('.//a[@class="detLink"]', $row)->item(0)->nodeValue;
                         $magnetLink = $xpath->query('.//a[contains(@href, "magnet")]', $row)->item(0)->getAttribute('href');

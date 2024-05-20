@@ -1,14 +1,15 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $CONFIG_DIR = "/var/www/.config"; // change to whatever you want
+
     $data = json_decode(file_get_contents('php://input'), true);
 
     if (isset($data['magnetLink'])) {
         $magnetLink = escapeshellarg($data['magnetLink']);
 
-	$configDir = "/var/www/.config";
 
         // Set the HOME environment variable to point to the config directory
-        $env = "HOME=$configDir";
+        $env = "HOME=$CONFIG_DIR";
         $output = [];
         $return_var = 0;
 
