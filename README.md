@@ -2,7 +2,9 @@
 
 PHP Pirate is a simple web application that allows you to search and download torrents easily  
 
-the original idea is to use this web server on the same server you have plex / jellyfin or somehting of that matter. You can download movies and series using this, and then watch it through your streaming client
+the original idea is to use this web server on the same server you have plex / jellyfin or somehting of that matter. You can download movies and series directly to the server, and then watch it through your streaming client
+
+![example run](image.png)
 
 ## Requirements
 
@@ -32,6 +34,10 @@ sudo chown -R www-data:www-data /var/www/.config
 ```
 
 *if you want to configure qbittorrent-nox settings you can do it in the web ui after running a download once
+
+### Start web client
+
+`sudo service apache2 start`
 
 ## Usage
 
