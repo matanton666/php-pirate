@@ -2,6 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $CONFIG_DIR = "/var/www/.config"; // change to whatever you want
 
+
     $data = json_decode(file_get_contents('php://input'), true);
 
     if (isset($data['magnetLink'])) {
@@ -18,16 +19,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($return_var !== 0) {
             // Command failed, output the error message
-            echo "Failed to download the torrent. Error: " . implode("\n", $output);
+            echo json_encode(["status" => "error", "message" => "Failed to download the torrent. Error: " . implode("\n", $output)]);
         } else {
-            echo "Torrent downloaded starting in background, will be ready soon.";
+            // chagne the message to whatever you want
+            echo json_encode(["status" => "success", "message" => "Torrent download started in the background\n you can exit this page.\n\n check in about 5-15 minutes to see if the download has completed"]);
         }
-
     } else {
-        echo "Invalid request.";
+        echo json_encode(["status" => "error", "message" => "Invalid request."]);
     }
 } else {
-    echo "Invalid request method.";
+    echo json_encode(["status" => "error", "message" => "Invalid request method."]);
 }
 ?>
-
