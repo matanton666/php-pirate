@@ -43,7 +43,7 @@ sudo chown -R www-data:www-data /var/www/.config
 the curl extension is required for getting the downloading movies from the server and display on the web page
 
 install extension - `sudo apt install php-curl`  
-uncomment the line in`/etc/php/<your php version>/apache2/php.ini` file - `extension=curl`  
+uncomment the line `extension=curl` in `/etc/php/<your php version>/apache2/php.ini`
 
 ### Start web client
 
