@@ -4,7 +4,9 @@ PHP Pirate is a simple web application that allows you to search and download to
 
 the original idea is to use this web server on the same server you have plex / jellyfin or somehting of that matter. You can download movies and series directly to the server, and then watch it through your streaming client
 
-![example run](image.png)
+![old example run](image.png)
+
+![newer version](image-1.png)
 
 ## Requirements
 
