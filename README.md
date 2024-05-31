@@ -33,7 +33,15 @@ sudo mkdir -p /var/www/.config/qBittorrent
 sudo chown -R www-data:www-data /var/www/.config
 ```
 
-*if you want to configure qbittorrent-nox settings you can do it in the web ui after running a download once
+*if you want to configure qbittorrent-nox settings you can do it in the web ui  
+*note that qbittorent-nox will start only after you started a download
+
+### Php curl extension
+
+the curl extension is required for getting the downloading movies from the server and display on the web page
+
+install extension - `sudo apt install php-curl`  
+uncomment the line in`/etc/php/<your php version>/apache2/php.ini` file - `extension=curl`  
 
 ### Start web client
 
@@ -41,7 +49,9 @@ sudo chown -R www-data:www-data /var/www/.config
 
 ## Usage
 
-Open `index.php` in your web browser, Enter your search query and the application will display the top 5 results from The Pirate Bay. Click on download to start downloading in the background. If you want to check the progress then go to your website address on port `8080` where the qbitorrent web client resides.
+Open `index.php` in your web browser, Enter your search query and the application will display the top 5 results from The Pirate Bay. Click on download to start downloading in the background. If you want to check the progress then go to your website address on port `8080` where the qbitorrent web client resides.  
+*if you encounter issues try to restart the apache service `sudo service apache2 restart`
+
 
 ## Contributing
 
